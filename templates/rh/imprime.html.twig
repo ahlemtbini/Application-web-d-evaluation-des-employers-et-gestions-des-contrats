@@ -1,0 +1,424 @@
+
+                  <table>
+  
+                            {% for cdd in cdd %}
+                            {% if cdd.getMTR ==cdd.MTR %}
+                                {% if cdd.FONC==9 %}
+                                
+
+                                       {% for Sessions in Sessions %}
+                                          {% if Sessions.MTR == cdd.MTR %}
+                                          <table id="basic-datatables"  >
+                                          <tr>
+                                          <td>
+                                          Mtr: {{cdd.MTR}}<br/>
+                                          Nom Prenom :{{cdd.NOMPRENOM}}<br/>
+                                          Fonction:{{cdd.FONC}}<br/>
+                                          Date d'evaluation:{{Sessions.date|date('d/m/Y')}}<br/>
+                                          {% for responsable in responsable %}
+                                           {% if responsable.GSPRMTRC == Sessions.responsable %}
+                                          évaluateur :{{responsable.GSPRNOM}}<br/><br/>
+                                           {% endif %}
+                                          {% endfor %}
+                                          </td>
+                                          <td>
+                                          <img src="http://localhost:8000/admin/img/logo.png" style="width: 100px;height: 140px; margin-left: 0.2px; ">
+                                          </td>
+                                          </tr>
+                                          <tr> <td><center> Fiche d'evaluation <br>
+                                                  N:{{Sessions.numsession}}<br/>
+                                                  Note finale :{{Sessions.score|round(1, 'floor') }}/20</center>
+                                                  </td>
+                                          </tr>
+                                          <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+                                          
+                                          <tr>
+                                           <th>criteres</th>
+                                           <th>note</th>
+                                          </tr>
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Qualite d accueil</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                               {% if realisation.id in range(66,71) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+                                        
+                                        {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">La maitrise des operations de la caisse</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(72,78) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                         {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">la conformitee et le respect des procedures</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(79,84) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Service a la client?le</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(85,89) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+
+                                       {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Qualite du suivi de la situation client </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(90,96) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Fidelisation et developpement de portefeuille client </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(97,100) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Qualite de traitement des dossiers credits</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(101,106) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Attitudes et comportements au travail </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(107,114) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                           {% set i=0 %}
+                                            {% set j=0 %}
+
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Les competences techniques </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(115,117) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+
+
+                                        <tr>     
+                                         <th> score :</th>
+                                         <td>{{ Sessions.score|round(1, 'floor')}}</td>
+                                         
+
+                                          {% endif %}
+                                       {% endfor %}
+                                        {% endif %}
+                            {% endif %}
+                      {% endfor %}
+
+                                       
+                                                              {% for cdd in cdd %}
+                            {% if cdd.getMTR ==cdd.MTR %}
+                                 {% if cdd.FONC==10 or cdd.FONC==11 or cdd.FONC==12 %}
+                                    {% for Sessions in Sessions %}
+                                          {% if Sessions.MTR == cdd.MTR %}
+                                          <table id="basic-datatables"  >
+                                          <tr>
+                                          <td>
+                                          Mtr: {{cdd.MTR}}<br/>
+                                          Nom Prenom :{{cdd.NOMPRENOM}}<br/>
+                                          Fonction:{{cdd.FONC}}<br/>
+                                          Date d'evaluation:{{Sessions.date|date('d/m/Y')}}<br/>
+                                          {% for responsable in responsable %}
+                                           {% if responsable.GSPRMTRC == Sessions.responsable %}
+                                          évaluateur :{{responsable.GSPRNOM}}<br/><br/>
+                                           {% endif %}
+                                          {% endfor %}
+                                          </td>
+                                          <td>
+                                          <img src="http://localhost:8000/admin/img/logo.png" style="width: 100px;height: 140px; margin-left: 0.2px; ">
+                                          </td>
+                                          </tr>
+                                          <tr> <td><center> Fiche d'evaluation <br/>
+                                                  N:{{Sessions.numsession}}<br/>
+                                                  Note finale :{{Sessions.score|round(1, 'floor') }}/20</center>
+                                                  </td>
+                                          </tr>
+                                          <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+
+                                          <tr>
+
+                                           <th>criteres</th>
+                                           <th>note</th>
+                                          </tr>
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Qualite d'accueil</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id in range(1,7) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                        {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">La maitrise des operations de la caisse</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                             {%if realisation.id  in range(8,16) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+
+                                       {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">La conformite et le respect des procedures</b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                               {% if realisation.id  in range(17,21)%}
+                                               {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                            {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">L'organisation et la preparation de l'espace de travail </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id  in range(22,26)%}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                         {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Attitudes et comportements au travail  </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id  in range(27,33) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                        {% set i=0 %}
+                                            {% set j=0 %}
+                                            <tr><td style="width: 600px; padding-top:10px; padding-bottom:10px;border: 3px; text-align: center;background: #014487;"><b style="color:#FFFFFF;">Les competences techniques </b></td></tr>
+                                            {% for criteres in criteres %}
+                                             {% for realisation in realisation %}
+                                              {% if realisation.id == criteres.idCritere and criteres.MTR==Sessions.MTR and criteres.numsession==Sessions.numsession  %}
+                                              {% if realisation.id  in range(34,36) %}
+                                              {% set i=i+criteres.note %}
+                                              {% set j=j+1 %}
+
+                                              <tr>
+                                               <td>{{realisation.criteres}}</td>
+                                               <td>{{criteres.note}}/3</td>
+                                            </tr>
+                                          {% endif %}
+                                           {% endif %}
+                                            {% endfor %}
+                                             {% endfor %}
+                                        <tr><td><b>note activite: </b></td><td><b>{{(i/3)|round(1, 'floor')}}/{{j}}</b></td></tr>
+
+                                        <tr>     
+                                         <th> score :</th>
+                                         <td>{{ Sessions.score|round(1, 'floor')}}</td>
+                                       
+
+                                         
+
+                                        </table>
+
+
+                                 
+
+                                       {% endif %}
+                                    {% endfor %}
+                              {% endif %}
+                            {% endif %}
+                      {% endfor %}
+                       
+
+                               
+                      </table>
+                                                              </table>
+
+
+                          
+                                                              </table>
+
+                                 

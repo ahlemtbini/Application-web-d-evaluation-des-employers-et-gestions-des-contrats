@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}score{% endblock %}
+
+{% block body %}
+<div class="resposable-page">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+
+{% for cdd in cdd %}
+      {%if cdd.getMTR==cdd.MTR%}
+
+              <center><b>Nom prénom : </b>: {{ cdd.NOMPRENOM|e }}</center>
+              <center><h3> score : {{(score *20)/108}} / 20</h3></center>
+             {%for ele in score1%}
+                                                
+                                             {%endfor%}
+               
+
+
+{{ form_start(form,action="{{ path('lien', { 'mtr' : cdd.MTR })}}")  }}
+<p hidden>
+ {{ form_widget(form.MTR,{'attr': {'value': cdd.getMTR()}})}}</p>
+ <p hidden>
+ {{ form_widget(form.numsession,{'attr': {'value': cdd.getNumsession()}})}}</p>
+  <p hidden>
+ {{ form_widget(form.score,{'attr': {'value': (score *20)/108}})}}</p>
+<center> {{ form_widget(form.commentaire,{'attr': {'placeholder': "votre commentaire"}})}}</center>
+ {%for responsable in responsable%}
+{%if responsable.codeAgence==cdd.FONC%}
+  <p hidden>
+ {{ form_widget(form.responsable,{'attr': {'value':responsable.getGSPRMTRC}})}}</p>
+ <center><input type="submit"  value="suivant" class="btn btn-primary"></center>
+    {%endif%}
+    {%endfor%}
+
+  
+
+         {%endif%}
+    {%endfor%}
+
+{% endblock %}

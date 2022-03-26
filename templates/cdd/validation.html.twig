@@ -1,0 +1,96 @@
+{% extends 'cdd/dachbord.html.twig' %}
+
+{% block title %}employe cdd{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Mes validations :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+                            <th>#</th>
+                            <th>objectif</th>
+                            <th>realisation</th>
+                            <th>état</th>
+                          </tr>
+                          	</thead>
+											     <tbody>
+
+                                    {% for cdd in cdd %}
+                                    {% if app.user.username == cdd.MTR %}
+                                    <center><b>employe</b> : {{ cdd.NOMPRENOM|e }}
+                                    
+
+                                    
+                                    {% if cdd.FONC == 10 %}
+                                    <b>role</b> :guichitiere</center>
+                                    {% endif %}
+                                    {% if cdd.FONC == 9 %}
+                                    <b>role</b> :charge clientele</center>
+                                    {% endif %}
+                                    {% if cdd.FONC == 11 %}
+                                    <b>role</b> :attache comercial</center>
+                                    {% endif %}
+                                    {% if cdd.FONC == 12 %}
+                                    <b>role</b> :interimaire</center>
+                                    {% endif %}
+
+                                       {% for ObjectifRe in ObjectifRe %}
+                                         {% if app.user.username == ObjectifRe.MTR %}
+                                          {% for RealisationCdd in RealisationCdd %}
+                                           {% if RealisationCdd.idObjectif==ObjectifRe.id %}
+
+                                       <tr>
+                                         <td>{{RealisationCdd.id}}</td>
+                                         <td> {{ObjectifRe.objectif}}</td>
+                                         <td>{{ RealisationCdd.realisation|e }}</td>
+                                         {% if  RealisationCdd.valider== 1%}
+                                         <td><button class="btn btn-success">
+										                      	validé
+										                        </button></td>
+                                         {% endif %}
+                                         {% if  RealisationCdd.valider== -1 %}
+                                         <td><button class="btn btn-danger">
+										                   	non validé
+									                    	</button></td>
+                                         {% endif %}
+                                         {% if  RealisationCdd.valider== NULL %}
+                                         <td><button class="btn btn-warning"> en cours </button>
+                                         {% endif %}
+
+                                            {% endif %}    
+                                          {% endfor %}
+                                        {% endif %}    
+                                       {% endfor %}
+                                       {% endif %}    
+                                       {% endfor %}
+
+            
+                        </tr>
+                                         
+											     <tbody>
+
+                                 </table>
+                             </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         </div>
+                         
+
+{% endblock %}

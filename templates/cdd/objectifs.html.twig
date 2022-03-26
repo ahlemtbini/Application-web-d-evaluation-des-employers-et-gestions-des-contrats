@@ -1,0 +1,60 @@
+{% extends 'cdd/dachbord.html.twig' %}
+
+{% block title %}employe cdd{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Mes objectifs:</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+										   <tr>
+                                          <th>#</th>
+                                           <th>objectif</th>
+                                           <th>nb des realisation</th>
+                                           <th>action</th>
+                                          </tr>
+											</thead>
+											
+											<tbody>
+                                          
+                       
+                        
+
+                    
+ 
+                                    {% for ObjectifRe in ObjectifRe %}
+                                        {% if app.user.username == ObjectifRe.MTR %}
+                                          {% if ObjectifRe.nbRealisation >0 %}
+                                          <tr>
+                                          <td>-</td>
+                                          <td> {{ ObjectifRe.objectif|e }}</td>
+                                          <td>{{ ObjectifRe.nbRealisation|e }}</td>
+                                          <td><a href="{{ path('cddid', {id: ObjectifRe.id}) }}" >realiser maintenant</a></td>
+                                          </tr>
+                                          {% endif %}
+                                        </center>
+                                        {% endif %}    
+                                       {% endfor %}
+                                   </table>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+
+{% endblock %}

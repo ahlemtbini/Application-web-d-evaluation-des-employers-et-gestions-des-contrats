@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrat{% endblock %}
+
+{% block body %}
+{%for contrat in contrat%}
+<h3> {{ contrat.getMTR }}/
+       {{ contrat.getCin }}/
+       {{ contrat.getNOMPRENOM }}/
+       {{ contrat.getGRADE }}/
+       {{ contrat.getAGENCE }}/
+       {{contrat.getFONC }}/
+       {{ contrat.getDATENAIS }}/
+        {{ contrat.getDuree }}/
+       {{ contrat.getNumsession }}/
+      
+       </h3>
+{% endfor %}
+{% endblock %}

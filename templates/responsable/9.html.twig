@@ -1,0 +1,838 @@
+
+
+
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link href="https://justpaste.it/redirect/3y3ab/https://fonts.googleapis.com/css%3Ffamily=Raleway" rel="nofollow">
+</head>
+<body>
+    {% block body %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+{% for cdd in cdd %}
+  {% if cdd.getMTR==cdd.MTR %}
+   {% if cdd.FONC==9 %}
+        <form  id="msform" action="{{ path('lien', { 'mtr' : cdd.MTR }) }}" method="POST">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                
+            <fieldset>
+            
+                 <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+                <h2 class="fs-title">Qualite d'accueil</h2>
+               
+                
+
+                
+                <b>role</b> :chargé de clientèle</center>
+                {%if cdd.session==1%}
+                 {%set m=12%}
+                {%set n=25%}
+                {%set l=554%}
+                {%set p=56455%}
+                         {%for realisation in realisation%}
+                                        {%if realisation.id in range(66,71) %}
+
+                                            
+                                             
+                                             <form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{m}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{n}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{n}}"></label>
+                                             <input type="radio"   id="{{l}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{l}}"></label>
+                                             <input type="radio"  id="{{p}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{p}}"></label>
+                                             </fieldset>
+                                             {%set m=m+1%} 
+                                            {%set n=n+1%} 
+                                            {%set l=l+1%} 
+                                            {%set p=p+1%} 
+                                             </form>
+
+                                             
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}
+                      
+               
+                 <input type="button" name="next" class="next action-button" value="suivant"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">La maitrise des operations de la caisse</h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                       
+                         <h3>La maitrise des operations de la caisse</h3> </center></br>
+                          {%set m1=1899992%}
+                {%set n1=25999%}
+                {%set l1=554999%}
+                {%set p1=564559999%}               
+                            {% for realisation in realisation  %}
+                                        {% if realisation.id in range(72,78) %}
+
+                                             
+                                             <form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{m1}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{n1}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{n1}}"></label>
+                                             <input type="radio"   id="{{l1}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{l1}}"></label>
+                                             <input type="radio"  id="{{p1}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{p1}}"></label>
+                                             </fieldset>
+                                             {%set m1=m1+1%} 
+                                            {%set n1=n1+1%} 
+                                            {%set l1=l1+1%} 
+                                            {%set p1=p1+1%} 
+                                             </form>
+
+                                             
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+                 {% endif %}
+
+            
+                
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">la conformitee et le respect des procedures</h2>
+
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1  %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>la conformitee et le respect des procedures</h3> </center></br>
+                         {%set m11=999999912%}
+                         {%set n11=8825999%}
+                {%set l11=88554999%}
+                {%set p11=88564559999%}                
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(79,84)%}
+
+                                             
+                                             <tr><form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{m11}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{n11}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{n11}}"></label>
+                                             <input type="radio"   id="{{l11}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{l11}}"></label>
+                                             <input type="radio"  id="{{p11}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{p11}}"></label>
+                                             </fieldset>
+                                             {%set m11=m11+1%} 
+                                            {%set n11=n11+1%} 
+                                            {%set l11=l11+1%} 
+                                            {%set p11=p11+1%} 
+                                             </form></tr>
+                                             </tr>
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}
+                                                              
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/> 
+               </fieldset>
+               <fieldset>
+                 <h2 class="fs-title">Service a la clientele</h2>
+
+
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Service a la clientele</h3> </center></br> 
+                          {%set a=122%}
+                {%set b=252%}
+                {%set c=5542%}
+                {%set d=564552%}              
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(85,89) %}
+
+                                             
+                                            <tr><form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{a}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{b}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{b}}"></label>
+                                             <input type="radio"   id="{{c}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{c}}"></label>
+                                             <input type="radio"  id="{{d}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{d}}"></label>
+                                             </fieldset>
+                                             {%set a=a+1%} 
+                                            {%set b=b+1%} 
+                                            {%set c=c+1%} 
+                                            {%set d=d+1%} 
+                                             </form></tr>
+                                             </tr>
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}
+               
+                                                          
+                                    
+
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/> 
+               </fieldset>
+               <fieldset>
+                <h2 class="fs-title">Qualite du suivi de la situation client </h2>
+
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session ==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Qualite du suivi de la situation client </h3> </center></br>
+                         {%set e=128%}
+                {%set f=258%}
+                {%set g=5548%}
+                {%set h=564558%}               
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(90,96)%}
+
+                                             
+                                            <tr><form>
+                                                 <fieldset class="rating">
+                                                {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{e}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{f}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{f}}"></label>
+                                             <input type="radio"   id="{{g}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{g}}"></label>
+                                             <input type="radio"  id="{{h}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{h}}"></label>
+                                             </fieldset>
+                                             {%set e=e+1%} 
+                                            {%set f=f+1%} 
+                                            {%set g=g+1%} 
+                                            {%set h=h+1%} 
+                                             </form><br/></tr>
+                                            
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}
+                                       
+
+                            <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/>
+                                    
+
+               </fieldset>
+               <fieldset>
+                 <h2 class="fs-title">Fidelisation et developpement de portefeuille client</h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Fidelisation et developpement de portefeuille client </h3> </center></br>
+                          {%set i=1202%}
+                {%set j=2502%}
+                {%set k=55402%}
+                {%set o=5645502%}               
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(97,100) %}
+
+                                              
+                                             <tr><form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{i}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{j}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{j}}"></label>
+                                             <input type="radio"   id="{{k}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{k}}"></label>
+                                             <input type="radio"  id="{{o}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{o}}"></label>
+                                             </fieldset>
+                                             {%set i=i+1%} 
+                                            {%set j=j+1%} 
+                                            {%set k=k+1%} 
+                                            {%set o=o+1%} 
+                                             </form><br/></tr>
+                                             </tr>
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}                
+                 <input type="hidden" name="score_value" >                                     
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/>
+
+               </fieldset>
+               {#------abcdefg-------#}
+               <fieldset>
+                 <h2 class="fs-title">Qualite de traitement des dossiers credits</h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Qualite de traitement des dossiers credits</h3> </center></br> 
+                         {%set w=9871223%}
+                {%set x=9872523%}
+                {%set y=598595423%}
+                {%set z=5698945523%}                
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(101,106) %}
+
+                                              
+                                             <form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                             <input type="radio"  id="{{w}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{x}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{x}}"></label>
+                                             <input type="radio"   id="{{y}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{y}}"></label>
+                                             <input type="radio"  id="{{z}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{z}}"></label>
+                                             </fieldset>
+                                             {%set w=w+1%} 
+                                            {%set x=x+1%} 
+                                            {%set y=y+1%} 
+                                            {%set z=z+1%} 
+                                        
+                                             </form>
+                                             
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}                
+                 <input type="hidden" name="score_value" >                                     
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="précédent"/>
+
+               </fieldset>
+
+               {#------abcdefg-------#}
+               <fieldset>
+                 <h2 class="fs-title">Attitudes et comportements au travail </h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Attitudes et comportements au travail </h3> </center></br>
+                         {%set a1=1245%}
+                {%set b1=2545%}
+                {%set c1=55445%}
+                {%set d1=5645545%}               
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(107,114) %}
+
+                                             
+                                             <tr><form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                              <input type="radio"  id="{{a1}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{b1}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{b1}}"></label>
+                                             <input type="radio"   id="{{c1}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{c1}}"></label>
+                                             <input type="radio"  id="{{d1}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{d1}}"></label>
+                                             </fieldset>
+                                             {%set a1=a1+1%} 
+                                            {%set b1=b1+1%} 
+                                            {%set c1=c1+1%} 
+                                            {%set d1=d1+1%} 
+                                             </form><br/></tr>
+                                             </tr>
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}                
+                 <input type="hidden" name="score_value" >                                     
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="suivant"/>
+
+               </fieldset>
+
+               {#------abcdefg-------#}
+               <fieldset>
+                 <h2 class="fs-title">Les competences techniques               </h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                      <center>session active</center>
+                        <center> 
+                         <h3>Les competences techniques               </h3> </center></br>
+                          {%set e1=124599%}
+                {%set f1=254599%}
+                {%set g1=5544599%}
+                {%set h1=564554599%}               
+                            {% for realisation in realisation %}
+                                        {% if realisation.id in range(115,114) %}
+
+                                              
+                                             <tr><form>
+                                                 <fieldset class="rating">
+                                                 {{realisation.criteres}}<br/>
+                                              <input type="radio"  id="{{e1}}"  value="0"  name="{{realisation.id}}" checked hidden>
+                                             <input type="radio"  id="{{f1}}"  value="1"  name="{{realisation.id}}"><label class = "foul" for="{{f1}}"></label>
+                                             <input type="radio"   id="{{g1}}" value="2"  name="{{realisation.id}}"><label class = "foul" for="{{g1}}"></label>
+                                             <input type="radio"  id="{{h1}}" value="3"  name="{{realisation.id}}"><label class = "foul" for="{{h1}}"></label>
+                                             </fieldset>
+                                             {%set e1=e1+1%} 
+                                            {%set f1=f1+1%} 
+                                            {%set g1=g1+1%} 
+                                            {%set h1=h1+1%} 
+                                             </form><br/></tr>
+                                             </tr>
+                                             
+
+                                        {% endif %}
+                            {% endfor %}
+
+                {% endif %}                
+                 <input type="hidden" name="score_value" >                                     
+                <input type="button" name="previous" class="previous action-button-previous" value="précédent"/>
+                <input type="button" name="next" class="next action-button" value="terminer" onclick="setScore()"/>
+
+               </fieldset>
+               <fieldset>
+                 <h2 class="fs-title">commentaire</h2>
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+
+               <b>role</b> :chargé de clientèle</center>
+                {% if cdd.session==1 %}
+                     
+
+              <center><b>Nom prénom : </b>: {{ cdd.NOMPRENOM|e }}</center>
+
+{{ form_start(form,action="{{ path('lien', { 'mtr' : cdd.MTR })}}")  }}
+<p hidden>
+ {{ form_widget(form.MTR,{'attr': {'value': cdd.getMTR()}})}}</p>
+ <p hidden>
+ {{ form_widget(form.numsession,{'attr': {'value': cdd.getNumsession()}})}}</p>
+<center> {{ form_widget(form.commentaire,{'attr': {'placeholder': "votre commentaire"}})}}</center>
+ {% for responsable in responsable %}
+{% if responsable.codeAgence == cdd.FONC %}
+  <p hidden>
+ {{ form_widget(form.responsable,{'attr': {'value':responsable.getGSPRMTRC}})}}</p>
+  {% endif %}
+ {% endfor %}
+{{form_widget(form.abcde)}}
+  {% endif %}
+                                 
+                <button type="submit" class="action-button"  >Enregistrer</button>
+               </fieldset>
+        </form>
+    </ul>
+</form>
+</div>
+</div>
+
+        {{form_rest(form) }}
+{{form_end(form) }}
+        {% endif %}
+        {% endif %}
+                {% endfor %}
+
+{% endblock %}
+
+
+
+                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script type="text/javascript">
+    
+    
+
+ function setScore() {
+       
+    var total = 0;
+    var table=new Array();
+   
+   
+   
+    $("input[type=radio]:checked").each(function() {
+        total += parseFloat($(this).val());
+        let object={
+    name:"",
+    value:""
+    };
+        object.name=$(this).attr("name");
+        object.value=$(this).val();
+        table.push(object);
+        
+        
+    });
+    var score1={
+    score:total,
+    rates:table
+    };
+    console.log(score1);
+   var data= JSON.stringify(score1);
+   console.log(data);
+
+    $('#sessions_abcde').val(data) ;
+    
+
+ }
+ $("label").click(function(){
+  $(this).parent().find("label").css({"background-color": "#FFFE22"});
+  $(this).css({"background-color": "#FFFE22"});
+  $(this).nextAll().css({"background-color": "#D8D8D8"});
+});
+  
+
+
+//jQuery time
+
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+ 
+ 
+        
+   
+$(".next").click(function(){
+
+    if(animating) return false;
+    animating = true;
+    
+    current_fs = $(this).parent();
+    next_fs = $(this).parent().next();
+    
+    //activate next step on progressbar using the index of next_fs
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+    
+    //show the next fieldset
+    current_fs.hide();
+    next_fs.show(); 
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+        step: function(now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale current_fs down to 80%
+            scale = 1 - (1 - now) * 0.2;
+            //2. bring next_fs from the right(50%)
+            left = (now * 50)+"%";
+            //3. increase opacity of next_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({
+        'transform': 'scale('+scale+')',
+        'position': 'absolute'
+      });
+            next_fs.css({'left': left, 'opacity': opacity});
+        }, 
+        duration: 800, 
+        complete: function(){
+            current_fs.hide();
+            animating = false;
+        }, 
+        //this comes from the custom easing plugin
+        easing: 'easeInOutBack'
+    });
+});
+
+
+$(".previous").click(function(){
+    if(animating) return false;
+    animating = true;
+    
+    current_fs = $(this).parent();
+    previous_fs = $(this).parent().prev();
+    
+    //de-activate current step on progressbar
+    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    
+    //show the previous fieldset
+    previous_fs.show(); 
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+        step: function(now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale previous_fs from 80% to 100%
+            scale = 0.8 + (1 - now) * 0.2;
+            //2. take current_fs to the right(50%) - from 0%
+            left = ((1-now) * 50)+"%";
+            //3. increase opacity of previous_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({'left': left});
+            previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+        }, 
+        duration: 800, 
+        complete: function(){
+            current_fs.hide();
+            animating = false;
+        }, 
+        //this comes from the custom easing plugin
+        easing: 'easeInOutBack'
+    });
+});
+
+$(".submit").click(function(){
+    return false;
+})
+
+
+</script>
+<style type="text/css">
+    
+
+
+    /*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/*basic reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background: #014487; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
+}
+
+body {
+    font-family: montserrat, arial, verdana;
+    background: transparent;
+}
+
+/*form styles*/
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    
+    margin-top: 6%;
+    margin-left:10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ee0979;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #ee0979;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #C5C5F1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 9.5%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+    margin-left: 1.7px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #ee0979;
+    color: white;
+}
+
+
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+.dme_link a {
+    background: #FFF;
+    font-weight: bold;
+    color: #ee0979;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 12px;
+}
+
+.dme_link a:hover, .dme_link a:focus {
+    background: #C5C5F1;
+    text-decoration: none;
+}
+.rating { 
+  border: none;
+  float: absolute;
+  margin:0px 0px 0px 0px;
+}
+
+
+input[type=radio] {
+    border: 0px;
+    width: 2%;
+    height: 2em;
+    
+}
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin-top: 2px;
+  padding:0px 5px 0px 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: center;
+}
+
+.rating > label { 
+  color: #fff; 
+
+  margin:0px 5px 0px 0px;
+  background-color:#D8D8D8;
+  border-radius:15px;
+ 
+}
+
+
+
+
+</style>
+
+
+
+</body>
+
+</html>
+<!-- /.MultiStep Form -->
+                

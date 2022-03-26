@@ -1,0 +1,95 @@
+{% extends 'responsable/dachbord.html.twig' %}
+
+{% block title %}responsable hierarchique{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">évaluation CDD :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+                            <th>#</th>
+                            <th>MTR</th>
+                            <th>NOM PRENOM</th>
+                            <th>CIN</th>
+                           <th>GRADE</th>
+                           <th>AGENCE</th>
+                           <th>FONC</th>
+                           <th>DATE REC</th>
+                           <th>DATE NAIS</th>
+                           <th>DATE FIN DE CONTRAT</th>
+                          
+                        </tr>
+ 
+                                    
+                                        {%for responsable in responsable%}
+                                        
+                                            {%if app.user.username==responsable.GSPRMTRC%}
+                                            {{responsable.GSPRNOM}} num agence : {{responsable.codeagence}}
+                                            {% for cdd in cdd %}
+                                            {%if cdd.agence==responsable.codeagence%}
+
+                            <tr>
+                                <td>{{ cdd.id }}</td>
+                                <td>{{ cdd.MTR|e }}  </td>
+                                {% if cdd.session == 0  %}
+                                 <td>{{ cdd.NOMPRENOM|e }}</td>
+                                {% endif %}
+                                {% set i=0 %}
+                                {% if cdd.session == 1  %}
+                                 {% for Sessions in Sessions %}
+                                {% if Sessions.numsession == cdd.numsession and cdd.MTR == Sessions.MTR %}
+                                <td>{{ cdd.NOMPRENOM|e }}</td>
+                                {% set i=1 %}
+                                {% endif %}
+                                {% endfor %}
+
+                                {% endif %}
+                               {% if i==0 and cdd.session == 1 %}
+                                <td><a href="{{ path('aff', {mtr: cdd.MTR})}}" >{{ cdd.NOMPRENOM|e }}</a></td>
+                                {% endif %}
+                                
+                                <td>{{ cdd.CIN|e }} </td>
+                                <td>{{ cdd.GRADE|e }} </td>
+                                <td>{{ cdd.AGENCE|e }} </td>
+                                <td>{{ cdd.FONC|e }} </td>
+                                <td>{{ cdd.DATEREC|e }} </td>
+                                <td>{{ cdd.DATENAIS|e }} </td>
+                                <td>{{ cdd.DATEFINDECONTRAT|e }} </td>
+                                
+                            </tr>   {% endif %}  
+                                   
+                                   {% endfor %}
+                                   {% endif %}
+                               {% endfor %}
+
+            
+                        </tr>
+                                         
+
+                                 </table>
+                             </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                         
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'cdd/dachbord.html.twig' %}
+
+{% block title %}employe cdd{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Mes evaluations:</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+                                           <th>Date de session</th>
+                                           <th>num Session</th>
+                                           <th>Responsable</th>
+                                           <th>voir plus</th>
+                                           <th>imprimer</th>
+                                          </tr>
+											</thead>
+											
+											<tbody>
+                                          
+                       
+                        
+
+                    
+ 
+                                    {% for cdd in cdd %}
+                                    {% if app.user.username==cdd.MTR%}
+
+                                    <center><b>employe</b> : {{ cdd.NOMPRENOM|e }}
+                                    {% if cdd.FONC==10  %}
+                                    <b>role</b> :guichitiere</center>
+                                    {% endif %}
+                                    {% if cdd.FONC==9  %}
+                                    <b>role</b> :chargé clientele</center>
+                                    {% endif %}
+                                    
+                                   {% if cdd.session==1%}
+                                       <center> session active</br></center>
+
+                                    {% for Sessions in Sessions %}
+                                     {% if Sessions.MTR == app.user.username %}
+                                     
+                                          <tr>
+                                           <td>
+                                           {{Sessions.date|date('d/m/Y')}}
+                                            
+                                            </td>
+                                           <td>{{Sessions.numsession}}</td>
+                                           <td>{{Sessions.responsable}}</td>
+                                          <td><a href="{{ path('session', {id: Sessions.id}) }}" ><i class="icon-eye"></i></a></td>
+                                          <td><center><a href="{{ path('imprimeevaluation', {id: Sessions.id}) }}" class="btn btn-info btn-border btn-round btn-sm">
+												<span class="btn-label">
+													<i class="fa fa-print"></i>
+												</span>
+												imprimer
+											</a></center></td>
+
+                                          </tr>
+                                     
+
+                                     {% endif %}
+                                    {% endfor %}
+                                      
+                                       {% endif %}
+                                      {% endif %}
+                                      {% endfor %}
+
+
+{% endblock %}

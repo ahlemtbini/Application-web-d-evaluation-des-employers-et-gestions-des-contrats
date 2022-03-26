@@ -1,0 +1,104 @@
+{% extends 'charge/dachbord.html.twig' %}
+
+{% block title %} charge contrats{% endblock %}
+
+{% block body %}
+
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Contrat CDD :</h4>
+								</div>
+								<table>
+								<tr>
+								<td>
+							    <img src="{{ asset('admin/img/logo.png')}}" alt="navbar brand" class="navbar-brand" style="width: 100px;height: 140px; margin-left:50px; margin-right:50px;">
+                                </td>
+								<td>
+								<table style="margin-right:270px;">
+                                {% for contrat in contrat %}
+                               <tr > Matricule :{{contrat.MTR}}<br/></tr>
+                               <tr> NOM PRENOM :{{contrat.NOMPRENOM}}<br/></tr>
+                               <tr>CIN:{{contrat.CIN}}<br/></tr>
+                                <tr>Grade:{{contrat.GRADE}}<br/></tr>
+								</table>
+								</td>
+								<td>
+								<table style="margin-right:300px;">
+                                <tr>Fonction:{{contrat.FONC}}<br/></tr>
+                                <tr>date de naissance:{{contrat.DATENAIS}}<br/></tr>
+                                <tr>numero de sesssion:{{contrat.numsession}}<br/></tr>
+                                <tr>durée d contrat:{{contrat.Duree}}<br/></tr>
+								</table>
+								</td>
+                                </table>
+								</td>
+								</tr>
+								</table>
+                                {% endfor %}
+                                          <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+<h4><b style="color:#014487;"> Information sur l'evaluation</b> </h4><br/>
+<table style="margin-left:150px;">
+{% for Sessions in Sessions %}
+{% for contrat in contrat %}
+{% if Sessions.MTR==contrat.MTR and Sessions.numsession == contrat.numsession %}
+   <tr ><td><b>SESSION N</b>:{{Sessions.numsession}}<br/></td>
+       <td><b>DATE </b>:{{Sessions.date|date('d/m/Y')}}<br/></td>
+	   <td><b>SCORE</b> :{{Sessions.score|round(1, 'floor') }}<br/></td>
+	   <td><b>COMMENTAIRE</b> :{{Sessions.commentaire}}<br/><br/></td>
+	</tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</table>
+                                      <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+<h4><b style="color:#014487;"> Suggestions quant au renouvellement du contrat </b> </h4><br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+                                      <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+<table style="margin-left:150px;">
+<tr>
+<td><h4><b style="color:#014487;">Signature Notateur</b></h4></td>
+<td><h4><b style="color:#014487;">Signature Validateur</b></h4></td>
+<td><h4><b style="color:#014487;">Signature employé</b></h4></td>
+</tr>
+</table>
+<br/><br/>
+                                      <tr><td><center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center></td></tr>
+
+
+							  </div>
+						</div>
+                      </div>
+                  </div>
+    <!--   Core JS Files   -->
+	<script src="{{ asset('admin/js/core/jquery.3.2.1.min.js')}}"></script>
+	<script src="{{ asset('admin/js/core/popper.min.js')}}"></script>
+	<script src="{{ asset('admin/js/core/bootstrap.min.js')}}"></script>
+	<!-- jQuery UI -->
+	<script src="{{ asset('admin/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
+	<script src="{{ asset('admin/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
+	
+	<!-- jQuery Scrollbar -->
+	<script src="{{ asset('admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+	<!-- Datatables -->
+	<script src="{{ asset('admin/js/plugin/datatables/datatables.min.js')}}"></script>
+	<!-- Atlantis JS -->
+	<script src="{{ asset('admin/js/atlantis.min.js')}}"></script>
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script src="{{ asset('admin/js/setting-demo2.js')}}"></script>
+	
+{% endblock %}

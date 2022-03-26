@@ -1,0 +1,59 @@
+
+{% extends 'rh/dachbord.html.twig' %}
+{% block title %}Contrat {% endblock %}
+
+
+
+ 
+{% block body %}
+
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">contrat :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+                  {% for cdd in cdd %}
+                   mtr:{{cdd.MTR}}<br/>
+                   Nom prenom: {{cdd.NOMPRENOM}}<br/>
+                    CIN:{{cdd.CIN}}<br/>
+                     Grade:{{cdd.GRADE}}<br/>
+                     Fonction:{{cdd.FONC}}<br/>
+                     date de naissance:{{cdd.DATENAIS}}<br/>
+                      numero de sesssion:{{cdd.numsession}}<br/>
+                      {% endfor %}
+{{ form_start(form) }}
+
+
+
+<center><div><br/><br/>
+
+ <div>
+<b style="color:#014487;">Pour l'employé par qu'elle duree le contrat sera t-il renouvelé ?</b>
+  <p>{{ form_widget(form.Duree)}}
+    
+ </div>
+
+
+ <div>
+
+<div>
+ <input type="submit" name="" value="Enregistrer" class="btn btn-primary">
+ </div></center>
+
+{{form_end(form)}}
+
+
+
+
+
+
+{% endblock %}

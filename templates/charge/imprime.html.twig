@@ -1,0 +1,80 @@
+
+
+
+								<div class="card-header">
+									<center><h4><b style="color:#014487;">Contrat CDD </b></h4></center>
+								</div>
+								<table>
+								<tr>
+								<td style="margin-right:400px;">
+                                 <table>
+                                 <tr>
+                                 <td>
+							    <img src="http://localhost:8000/admin/img/logo.png" alt="navbar brand" class="navbar-brand" style="width: 100px;height: 140px; margin-left:50px; margin-right:50px;">
+                                </td>
+                                </tr>
+                                </table>
+                                </td>
+								<td>
+								<table style="margin-right:100px; margin-left:100px; ">
+                                {% for contrat in contrat %}
+                               <tr > <td>Matricule :{{contrat.MTR}}</td></tr>
+                               <tr> <td>NOM PRENOM :{{contrat.NOMPRENOM}}</td></tr>
+                               <tr><td>CIN:{{contrat.CIN}}</td></tr>
+                                <tr><td>Grade:{{contrat.GRADE}}</td></tr>
+								</table>
+								</td>
+								<td>
+								<table >
+                                <tr><td>Fonction:{{contrat.FONC}}</td></tr>
+                                <tr><td>date de naissance:{{contrat.DATENAIS}}</td></tr>
+                                <tr><td>numero de sesssion:{{contrat.numsession}}</td></tr>
+                                <tr><td>durée d contrat:{{contrat.Duree}}</td></tr>
+								</table>
+								</td>
+                                </table>
+								</td>
+								</tr>
+								</table>
+                                {% endfor %}
+                                        <br/><br/>  <center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center>
+<center><h4><b style="color:#014487;"> Information sur l'evaluation</b> </h4><br/></center>
+<table style="margin-left:150px;">
+{% for Sessions in Sessions %}
+{% for contrat in contrat %}
+{% if Sessions.MTR==contrat.MTR  and Sessions.numsession == contrat.numsession%}
+   <tr ><td style="margin-left:50px;margin-right:50px;">session N:{{Sessions.numsession}}<br/></td>
+       <td style="margin-left:50px;margin-right:50px;">date:{{Sessions.date|date('d/m/Y')}}<br/></td>
+	   <td style="margin-left:50px;margin-right:50px;">score :{{Sessions.score|round(1, 'floor') }}<br/></td>
+	   <td style="margin-left:50px;margin-right:50px;">commentaire :{{Sessions.commentaire}}<br/></td>
+	</tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</table>
+                                       <br/><br/> <center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center>
+<center><h4><b style="color:#014487;"> Suggestions quant au renouvellement du contrat </b> </h4><br/></center>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+........................................................................................................................................................................................................................................................................................................<br/>
+                                      <br/><br/>  <center><hr style="height: 2px; color: #011B44; background-color: #011B44; width: 60%; border: none;"></center>
+<table style="margin-left:150px;">
+<tr>
+<td><h4><b style="color:#014487;">Signature Notateur</b></h4></td>
+<td><h4><b style="color:#014487;">Signature Validateur</b></h4></td>
+<td><h4><b style="color:#014487;">Signature employé</b></h4></td>
+</tr>
+</table>
+<br/><br/>
+
+
+							  </div>
+						</div>
+                      </div>
+                  </div>
+   

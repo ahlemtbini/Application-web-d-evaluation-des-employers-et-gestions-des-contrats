@@ -1,0 +1,84 @@
+{% extends 'responsable/dachbord.html.twig' %}
+
+{% block title %}responsable hierarchique{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">crée objectif :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										
+             
+{% for cdd in cdd %}
+      {%if cdd.getMTR==cdd.MTR%}
+
+              <center><b>employe </b>: {{ cdd.NOMPRENOM|e }}
+                                    
+
+                                    
+         {% if cdd.FONC==10 %}
+               <b>role</b> :guichitiere</center><br/><br/>
+         {% endif %}
+         {% if cdd.FONC==9 %}
+               <b>role</b> :charge clientele</center><br/><br/>
+         {% endif %}
+         {% if cdd.FONC==11 %}
+               <b>role</b> :attache comercial</center><br/><br/>
+         {% endif %}
+         {% if cdd.FONC==12 %}
+               <b>role</b> :interimaire</center><br/><br/>
+         {% endif %}
+                {%if cdd.session==1%}
+
+
+
+
+  <center>                                        
+ {{ form_start(form) }}
+<p hidden>
+ {{ form_widget(form.MTR,{'attr': {'value': cdd.getMTR()}})}}</p>
+ <p hidden>
+ {{ form_widget(form.numsession,{'attr': {'value': cdd.getNumsession()}})}}</p>
+<div>
+ 
+
+  {{ form_widget(form.objectif,{'attr': {'placeholder': 'objectif'}})}}
+  :{{ form_widget(form.nb_realisation,{'attr': {'placeholder': 'nombre de realisation'}})}}
+ </div><br/>
+ 
+
+<div>
+ <input type="submit" name="" value="Enregistrer" style="background: #014487;" class="btn " >
+ </div>
+{{form_end(form)}}
+ </center>                                            
+                                             
+                                             
+
+                                             {%endif%}
+                                        {%endif%}
+                                    {%endfor%}
+
+                             </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                          </div>
+                         </div>
+                         
+
+{% endblock %}

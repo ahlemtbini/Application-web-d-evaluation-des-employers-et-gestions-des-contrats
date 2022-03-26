@@ -3,6 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css" integrity="sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc" crossorigin="anonymous">
+   <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+  <div class="container">
+    <a href="#" class="navbar-brand">evaluation contractuel</a>
+        {% if app.user %}
+            <div class="mb-3">
+              <div class="collapse navbar-collapse" id="mobile-nav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item" style="color:#FFFFFF" >
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                
+                  </li>
+                </ul>
+            </div>
+        {% else %}
+        <div class="collapse navbar-collapse" id="mobile-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <div> <a href="/login">login</a></div>
+             
+           </ul>
+         </div>
+        {% endif %}
+      </div>
+    </nav>
+         
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -10,10 +37,12 @@
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+           <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
         {% endblock %}
     </head>
     <body>
+
         {% block body %}{% endblock %}
+        
     </body>
 </html>

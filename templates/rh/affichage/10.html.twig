@@ -1,0 +1,347 @@
+{% extends 'rh/dachbord.html.twig' %}
+
+{% block title %}Resource Humain{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">consulter evaluations :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+								<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+                                           <th>Date de session</th>
+                                           <th>num Session</th>
+                                           <th>Responsable</th>
+                                          </tr>
+                    </thead>
+                    <tbody> 
+ {% for cdd in cdd %}
+                                    
+                                    
+
+                                    <center><b>employe</b> : {{ cdd.NOMPRENOM|e }}
+                                    {% if cdd.FONC==10  %}
+                                    <b>role</b> :guichitiere</center><br/>
+                                    {% endif %}
+                                    {%if cdd.FONC==11%}
+                                    <b>role</b> :attaché commercial</center><br/>
+                                    {% endif %}
+                                     {%if cdd.FONC==12%}
+                                    <b>role</b> :interimaire</center><br/>
+                                    {% endif %}
+                                     {% if cdd.FONC==9 %}
+                                    <b>role</b> :chargee clientele</center><br/>
+                                    {% endif %}
+<center> <a href="{{ path('refuser', {mtr: cdd.MTR}) }}" ><button class="btn btn-danger">refuser</button></a>   
+ <a href="{{ path('approuver', {mtr: cdd.MTR}) }}" ><button class="btn btn-success">approuver</button></center></a>
+
+                                     {%if cdd.session==1 or cdd.session==0%}                                    
+
+                                    {% for Sessions in Sessions %}
+                                     {% if Sessions.mtr ==cdd.mtr %}
+                                     
+                                          <tr>
+                                          
+                                           <td>
+                                           <a href="{{ path('rhCriteres', {id: Sessions.id}) }}" >
+                                           {{Sessions.date|date('d/m/Y')}}
+                                            </a>
+                                            </td>
+                                           <td>{{Sessions.numsession}}</td>
+                                           <td>{{Sessions.responsable}}</td>
+                                           <td> <center>
+                                           <a href="{{ path('imprime',{id: Sessions.id}) }}" class="btn btn-info btn-border btn-round btn-sm">
+												<span class="btn-label">
+													<i class="fa fa-print"></i>
+												</span>
+												imprimer
+                      </a></center></td>
+                                          
+                                          </tr>
+                                     {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                      </table>
+                                      
+								<div class="card-body">
+									<div class="table-responsive">
+								<div class="table-responsive">
+                                      <table id="basic-datatables" class="display table table-striped table-hover">
+                                      <thead>
+                                          
+                                     <tr>
+                                          <th>#</th>
+                                           <th>objectif</th>
+                                           <th>realisation</th>
+                                           <th>etat</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          {% for ObjectifRe in ObjectifRe %}
+                                          {% for RealisationCdd in RealisationCdd %}
+                                             {% if RealisationCdd.idObjectif == ObjectifRe.id and ObjectifRe.MTR==cdd.getMTR  %}
+                                             <tr><td>{{RealisationCdd.id}}</td>
+                                              <td>{{ ObjectifRe.objectif|e }} </td>
+                                            <td> {{ RealisationCdd.realisation|e }}</td>
+                                         <td>{% if RealisationCdd.valider==-1 %}
+                                         non valider
+                                          {% endif %}
+                                        {% if RealisationCdd.valider==1 %}
+                                          valider
+                                          {% endif %}
+                                          {% if RealisationCdd.valider==NULL %}
+                                          en cours ..
+                                          {% endif %}
+                                          </td></tr>
+                                          {% endif %}
+                                          {% endfor %}
+                                          {% endfor %}
+                                        {% endif %}    
+                                       </tbody>
+                                     
+
+                                    
+
+
+</td>
+</td>
+</tr>
+</table>
+</div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                      </div>
+</div>
+</div>
+</div>
+</div>
+   <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">representations graphiques :</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+								<div class="table-responsive">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<div class="container2">
+  <canvas id="myChart2"  style="height:40vh; width:0%"></canvas>
+</div>
+<script>
+   {% set i=0 %}
+  {% set w=0 %}
+  {% set j=0 %}
+  {% set k=0 %}
+  {% set l=0 %}
+  {% set n=0 %}
+  {% set m=0 %}
+  {% set c=0 %}
+  {% set r=0 %}
+  {% set v=0 %}
+  
+
+  
+ 
+  var myChart2 = document.getElementById('myChart2').getContext('2d');
+  var radarChart = new Chart(myChart2,{
+
+    type:'radar',
+    data:{
+      {% if cdd.FONC==10 or cdd.FONC==11 or cdd.FONC==12 %}
+
+      labels:["Qualite d'accueil","La maitrise des operations de la caisse","La conformite et le respect des procedures","L'organisation et la preparation de l'espace de travail ","Attitudes et comportements au travail ","Les competences techniques "],
+      datasets:[{
+        label:'criteres dernier evaluation ',
+        data:[
+
+        {%for Criteres in criteres%}
+
+           {% if Criteres.idCritere in range(1,7) %}{%set w=w+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(8,16) %}{%set j=j+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(17,21) %}{%set k=k+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(22,26) %}{%set l=l+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(27,33) %}{%set n=n+Criteres.note%}{%endif%}
+            {% if Criteres.idCritere in range(34,36) %}{%set m=m+Criteres.note%}{%endif%}
+{%endfor%}
+ {{w}},{{j}},{{k}},{{l}},{{n}},{{m}}],
+
+{%endif%}
+{% if cdd.FONC==9%}
+
+labels:["Qualite d'accueil","La maitrise des operations de la caisse","La conformite et le respect des procedures","Service a la clientéle","Qualite du suivi de la situation client","Fidelisation et developpement de portefeuille client","Qualite de traitement des dossiers credits","Les competences techniques "],
+      datasets:[{
+        label:'note',
+        data:[
+
+        {%for Criteres in criteres%}
+
+           {% if Criteres.idCritere in range(66,71) %}{%set w=w+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(72,78) %}{%set j=j+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(79,84) %}{%set k=k+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(85,89) %}{%set l=l+Criteres.note%}{%endif%}
+           {% if Criteres.idCritere in range(90,96) %}{%set n=n+Criteres.note%}{%endif%}
+            {% if Criteres.idCritere in range(97,100) %}{%set m=m+Criteres.note%}{%endif%}
+             {% if Criteres.idCritere in range(101,106) %}{%set v=v+Criteres.note%}{%endif%}
+              {% if Criteres.idCritere in range(107,114) %}{%set c=c+Criteres.note%}{%endif%}
+               {% if Criteres.idCritere in range(115,117) %}{%set r=r+Criteres.note%}{%endif%}
+{%endfor%}
+ {{w}},{{j}},{{k}},{{l}},{{n}},{{m}},{{v}},{{c}},{{r}}],
+{%endif%}
+        backgroundColor:[
+        'rgba(255, 99, 132, 0.6)',
+         'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+           'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+             'rgba(255, 159, 64, 0.6)'
+
+
+        ],
+        borderWidth:1,
+        borderColor:'#777',
+        hoverBorderWidth:3,
+        hoverBorderColor:'#000'
+      }]
+    },
+    options:{
+
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+
+    }
+  });
+
+
+</script>
+
+
+<div class="container">
+  <canvas id="myChart"  style="height:40vh; width:0%"></canvas>
+</div>
+<script>
+  {% set i=0 %}
+  {% set w=0 %}
+  {% set j=0 %}
+  {% set k=0 %}
+  {% set l=0 %}
+  {% set n=0 %}
+  {% set m=0 %}
+  {% set v=0 %}
+  
+
+  
+ 
+  var myChart = document.getElementById('myChart').getContext('2d');
+  var barChart = new Chart(myChart,{
+
+    type:'line',
+    data:{
+
+      labels:[0,{%for Sessions in Sessions %}
+      {%if cdd.mtr==Sessions.mtr%}
+      {{ Sessions.numsession }},
+       {%endif%}
+      {%endfor%}
+      ],
+      datasets:[{
+        label:'score',
+        data:[0,
+        
+     
+       
+       {%for Sessions in Sessions%}
+       {%if cdd.mtr==Sessions.mtr%}
+           
+           {{Sessions.score}},
+           {%endif%}
+          
+
+
+{%endfor%}
+
+
+ ],
+
+
+        backgroundColor:[
+        
+        
+        
+                'rgba(155, 99, 122, 0.6)',
+
+       
+        
+       
+         
+ 
+
+
+
+        ],
+        borderWidth:1,
+        borderColor:'#777',
+        hoverBorderWidth:3,
+        hoverBorderColor:'#000'
+      }]
+    },
+    options:{
+
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+
+    }
+  });
+
+
+  
+
+
+
+</script>
+
+
+{% endfor %}
+                     
+         	</div>
+								</div>
+							</div>
+						</div>
+
+                             </div>
+                         </div>         
+                         </div>
+</div>
+</div>
+</div>    
+
+{% endblock %}
+

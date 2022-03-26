@@ -1,0 +1,157 @@
+{% extends 'cdd/dachbord.html.twig' %}
+
+{% block title %}employe cdd{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						
+					</div>
+                  <div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">A realiser:</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="basic-datatables" class="display table table-striped table-hover" >
+ 
+                                    {% for cdd in cdd %}
+                                    {%if app.user.username==cdd.MTR%}
+                                    {%if cdd.FONC==10%}
+                                     {%if cdd.session==1%}
+                                        {% for ObjectifRe in ObjectifRe %}
+                                        {%if app.user.username==ObjectifRe.MTR%}
+                                        <center>
+                                        <h5> </br>{{ ObjectifRe.objectif|e }}</br></h5>
+                                         {{ form_start(form) }}
+                                          <p hidden>{{ form_widget(form.idObjectif,{'attr': {'value': ObjectifRe.getid()}})}}</p></br>
+                                          {{ form_widget(form.realisation)}} </br>
+                                         <input type="submit" name="" value="Enregistrer"  style="background:#014487;" class="btn">
+                                          {{form_end(form)}}</br></br></br>
+                                        </center>
+                                         
+                                          
+                                        {%endif%}    
+                                       {%endfor%}
+                                       {%endif%}
+                                      {%endif%}
+
+
+
+
+
+                                      {%if cdd.FONC==9%}
+
+                                    <h1>charge clientele</h1>
+                                     {%if cdd.session==1%}
+                                        <h4>session active</h4>
+                                          
+                                            {% for ObjectifRe in ObjectifRe %}
+                                        {%if app.user.username==ObjectifRe.MTR%}
+                                        <center>
+                                        <h5> </br>{{ ObjectifRe.objectif|e }}</br></h5>
+                                         {{ form_start(form) }}
+                                          <p hidden>{{ form_widget(form.idObjectif,{'attr': {'value': ObjectifRe.getid()}})}}</p></br>
+                                          {{ form_widget(form.realisation)}} </br>
+                                         <input type="submit" name="" value="Enregistrer"  style="background:#014487;" class="btn">
+                                          {{form_end(form)}}</br></br></br>
+                                        </center>
+                                         
+                                          
+                                        {%endif%}    
+                                       {%endfor%}
+
+                                       {%endif%}
+                                      {%endif%}
+
+
+
+
+                                      {%if cdd.FONC==11%}
+
+                                    <h1>attache comercial</h1>
+                                     {%if cdd.session==1%}
+                                        <h4>session active</h4>
+                                          
+                                             {% for ObjectifRe in ObjectifRe %}
+                                        {%if app.user.username==ObjectifRe.MTR%}
+                                        <center>
+                                        <h5> </br>{{ ObjectifRe.objectif|e }}</br></h5>
+                                         {{ form_start(form) }}
+                                          <p hidden>{{ form_widget(form.idObjectif,{'attr': {'value': ObjectifRe.getid()}})}}</p></br>
+                                          {{ form_widget(form.realisation)}} </br>
+                                         <input type="submit" name="" value="Enregistrer"  style="background:#014487;" class="btn">
+                                          {{form_end(form)}}</br></br></br>
+                                        </center>
+                                         
+                                          
+                                        {%endif%}    
+                                       {%endfor%}
+
+                                       {%endif%}
+                                      {%endif%}
+
+
+
+
+                                      {%if cdd.FONC==12%}
+
+                                    <h1>interimaire</h1>
+                                     {%if cdd.session==1%}
+                                        <h4>session active</h4>
+                                          {% for ObjectifRe in ObjectifRe %}
+                                        {%if app.user.username==ObjectifRe.MTR%}
+                                        <center>
+                                        <h5> </br>{{ ObjectifRe.objectif|e }}</br></h5>
+                                         {{ form_start(form) }}
+                                          <p hidden>{{ form_widget(form.idObjectif,{'attr': {'value': ObjectifRe.getid()}})}}</p></br>
+                                          {{ form_widget(form.realisation)}} </br>
+                                         <input type="submit" name="" value="Enregistrer"  style="background:#014487;" class="btn">
+                                          {{form_end(form)}}</br></br></br>
+                                        </center>
+                                         
+                                          
+                                        {%endif%}    
+                                       {%endfor%}
+
+                                       {%endif%}
+                                      {%endif%}
+                                    
+
+
+                                      
+
+
+                                     
+                                      
+                                    
+                                    {%endif%}
+                                    {%endfor%}
+                                   
+                                   
+                                    
+
+ 
+                         
+            
+                        </tr>
+                                         
+
+                                 </table>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </div>
+                             </div>
+                         </div>
+                         
+
+{% endblock %}
